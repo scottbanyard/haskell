@@ -34,10 +34,10 @@ median xs = med $ sort xs
 -- subroutine for median - finds middle number depending on even/odd
 med :: Fractional a => [a] -> Maybe a
 med xs
-  | null xs  = Nothing
-  | odd  l = Just $ xs !! mid
-  | even l = Just $ findMid
+  | null xs   = Nothing
+  | odd  l    = Just $ xs !! mid
+  | even l    = Just $ findMid
     where
       l = length xs
-      mid = l `div` 2
-      findMid = (xs !! mid + xs !! (mid+1)) / 2
+      mid = (l `div` 2)
+      findMid = (xs !! mid + xs !! (mid-1)) / 2
