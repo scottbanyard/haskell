@@ -21,7 +21,7 @@ sumdeviation xs = sum $ deviation xs
 variance :: Fractional a => [a] -> a
 variance xs = sumdeviation xs / n
   where
-    n = fromIntegral(length xs - 1)
+    n = fromIntegral $ length xs - 1
 
 -- square root of sample variance
 standarddeviation ::  [Float] -> Float
