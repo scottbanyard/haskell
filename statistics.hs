@@ -18,7 +18,8 @@ sumdeviation :: Fractional a => [a] -> a
 sumdeviation xs = sum $ deviation xs
 -- sumdeviation = (sum . deviation) : can be written like this
 
--- sample variance = sum of each element - mean squared
+-- sample variance = sum deviations / length - 1
+-- 1 / N-1 * (SUM of all x: (x - m)^2)
 variance :: Fractional a => [a] -> a
 variance xs = sumdeviation xs / n
   where
