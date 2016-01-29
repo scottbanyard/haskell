@@ -16,6 +16,7 @@ deviation xs = map (\x -> (x - m) ^ 2) xs
 -- sum of the deviations added up
 sumdeviation :: Fractional a => [a] -> a
 sumdeviation xs = sum $ deviation xs
+-- sumdeviation = (sum . deviation) : can be written like this
 
 -- sample variance = sum of each element - mean squared
 variance :: Fractional a => [a] -> a
@@ -30,6 +31,7 @@ standarddeviation xs = sqrt $ variance xs
 -- median using Maybe data type - sorts list and then uses med as sub routine
 median :: (Fractional a, Ord a) => [a] -> Maybe a
 median xs = med $ sort xs
+-- median = (med . sort) : can be written like this
 
 -- subroutine for median - finds middle number depending on even/odd
 med :: Fractional a => [a] -> Maybe a
