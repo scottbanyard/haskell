@@ -5,7 +5,9 @@ import Data.List
 
 -- finds mean by summing list and divding by number of elements
 mean :: Fractional a => [a] -> a
-mean xs = sum xs / fromIntegral(length xs)
+mean xs = sum xs / n
+  where
+    n = fromIntegral $ length xs
 
 -- create list of each element - m ^ 2
 deviation :: Fractional a => [a] -> [a]
