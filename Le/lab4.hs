@@ -1,4 +1,4 @@
--- lab 4
+-- lab 4 : implementing more things on lab 3
 
 import Prelude hiding (Num)
 import qualified Prelude (Num)
