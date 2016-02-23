@@ -102,3 +102,32 @@ fvBexp (Implies exp1 exp2) = fvBexp exp1 `union` fvBexp exp2
   functionally complete - and so you can formulate any logical expression with them.
   P -> Q <=> ~P V Q
 --}
+
+{--
+  5) Prove that the so-called substitution lemma for arithmetic expressions, which states
+  Lemma : A[a[y -> a']] s = A[a] (s[y -> A[a']s]) for all a, a', y, s.
+  Proof by structural induction on a -
+  Base cases : a = ni where i is an integer (n stands for numeral - i is a subscript)
+                 = ni [y -> a'] = ni
+                 = A[ni] s = i
+                 = A[ni[y -> a']] s = i
+                 = A[ni](s [y -> a']s)
+                 therefore A[ni[y -> a'] s = A[ni](s [y-> a']s)
+
+               a = x in which x is a Var
+               then there are two subcases:
+               either x = y ---> a[y->a'] = a'
+                     LHS in main eq: A[a'] s
+                     RHS in main eq: A[y] s [y -> A[a'] s] y
+                     where the RHS returns A[a'] s
+                     so A[a'] s = A[a'] s
+               or x != y ---->  COMPLETE
+
+  Inductive case : a = a1 + a2
+               LHS in main eq : A[(a1 + a2) [y -> a']] s
+                              = A[a1 [y-> A[a'] s] + a2 [y -> A[a'] s]] s
+                              = A[a1 [y -> A[a'] s] s + A[a2 [y -> A[a'] s] s
+                              = A[a1](s [y -> A[a'] s) + A[a2](s [y -> A[a'] s)
+                              = A[a1 + a2](s [y -> A[a'] s) which equals RHS of main eq
+
+--}
